@@ -8,6 +8,13 @@ import DetailsGame from "./components/DetailsGame";
 import CatalogGames from "./components/CatalogGames";
 
 function App() {
+  const routes = {
+    '/home' : WelcomeWorld,
+    '/allGame': CatalogGames,
+    'createGame': CreateGame,
+    '/login': Login,
+    '/register': Register
+  }
   return (
     <div id="box">
 
