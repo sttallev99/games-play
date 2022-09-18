@@ -8,6 +8,7 @@ import CreateGame from "./components/CreateGame";
 import EditGame from "./components/EditGame";
 import DetailsGame from "./components/DetailsGame";
 import CatalogGames from "./components/CatalogGames";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
       <Header navigationChangeHandler={navigationChangeHandler}/>
 
       <main id="main-content">
-        { routes[page] || <h2>No page found!</h2>}
+        { routes[page] || <ErrorPage />}
       </main>
     </div>
   );

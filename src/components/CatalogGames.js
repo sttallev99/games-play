@@ -1,4 +1,20 @@
+import { useEffect, useState } from "react"
+
 export default function CatalogGames() {
+    const [games, setGames] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3030/data/games?sortBy=_createdOn%20desc', {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        })
+            .then(res => res.json())
+            .then(gameResponse => {
+                setGames(gameResponse);
+            })
+    }, [])
+
     return (
         <section id="catalog-page">
             <h1>All Games</h1>
