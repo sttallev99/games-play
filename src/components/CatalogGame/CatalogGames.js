@@ -1,17 +1,13 @@
 import { useEffect, useState } from "react"
 
+import * as gameService from '../../services/gameService';
 import GameCard from "./GameCard";
 
 export default function CatalogGames() {
     const [games, setGames] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3030/data/games?sortBy=_createdOn%20desc', {
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            }
-        })
-            .then(res => res.json())
+        gameService.getAll()
             .then(gameResponse => {
                 setGames(gameResponse);
             })
